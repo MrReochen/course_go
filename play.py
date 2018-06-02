@@ -184,8 +184,8 @@ def color_board(real_board, color):
 def get_winner(board):
     real_board = get_real_board(board)
     points =  _get_points(real_board)
-    black = points.get(1, 0) + points.get(2, 0)
-    white = points.get(-1, 0) + points.get(-2, 0) + conf['KOMI']
+    black = points.get(1, 0) + points.get(2, 0) - conf['KOMI'] + points.get(0,0)/2
+    white = points.get(-1, 0) + points.get(-2, 0) + conf['KOMI'] + points.get(0,0)/2
     if black > white:
         return 1, black, white
     elif black == white:
